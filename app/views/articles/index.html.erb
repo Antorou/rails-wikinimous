@@ -1,0 +1,21 @@
+<h1 class="text-center my-5">Articles</h1>
+
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm border-light rounded">
+          <div class="card-body">
+            <h3 class="card-title text-primary"><%= article.title %></h3>
+            <p class="card-text text-muted"><%= truncate(article.content, length: 75) %></p>
+            <%= link_to 'Read More', article_path(article), class: "btn btn-outline-secondary btn-sm" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-center mt-5">
+    <%= link_to 'Add a new article', new_article_path, class: "btn btn-outline-primary rounded-pill px-4" %>
+  </div>
+</div>
